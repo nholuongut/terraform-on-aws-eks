@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
       - name: ca-nginx
-        image: stacksimplify/kubenginx:1.0.0
+        image: nholuongut/kubenginx:1.0.0
         ports:
         - containerPort: 80
         resources:

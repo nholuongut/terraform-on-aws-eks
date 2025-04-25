@@ -31,7 +31,7 @@ metadata:
     service.beta.kubernetes.io/aws-load-balancer-backend-protocol: tcp 
 
     # External DNS - For creating a Record Set in Route53
-    external-dns.alpha.kubernetes.io/hostname: nlbdns101.stacksimplify.com
+    external-dns.alpha.kubernetes.io/hostname: nlbdns101.nholuongut.com
 spec:
   type: LoadBalancer
   selector:

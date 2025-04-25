@@ -34,7 +34,7 @@ resource "kubernetes_ingress_v1" "ingress" {
       # SSL Redirect Setting
       "alb.ingress.kubernetes.io/ssl-redirect" = 443
     # External DNS - For creating a Record Set in Route53
-      "external-dns.alpha.kubernetes.io/hostname" = "tfcertdiscovery-tls-101.stacksimplify.com"
+      "external-dns.alpha.kubernetes.io/hostname" = "tfcertdiscovery-tls-101.nholuongut.com"
     }    
   }
   spec {
@@ -49,7 +49,7 @@ resource "kubernetes_ingress_v1" "ingress" {
     }
     # SSL Certificate Discovery using TLS
     tls {
-      hosts = [ "*.stacksimplify.com" ]
+      hosts = [ "*.nholuongut.com" ]
     }      
     rule {
       http {

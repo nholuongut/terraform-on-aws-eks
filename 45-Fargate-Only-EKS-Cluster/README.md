@@ -309,9 +309,9 @@ kubectl -n fp-ns-app1 get pods
 kubectl -n fp-ns-app1 get deploy
 
 # Access Application
-http://fargate-profile-demo-501.stacksimplify.com
-http://fargate-profile-demo-501.stacksimplify.com/app1/index.html
-http://fargate-profile-demo-501.stacksimplify.com/app2/index.html
+http://fargate-profile-demo-501.nholuongut.com
+http://fargate-profile-demo-501.nholuongut.com/app1/index.html
+http://fargate-profile-demo-501.nholuongut.com/app2/index.html
 ```
 
 ## Step-13: Verify all the pods on EKS Cluster using AWS Mgmt Console

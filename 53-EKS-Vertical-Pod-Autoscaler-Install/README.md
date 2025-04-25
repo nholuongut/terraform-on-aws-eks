@@ -286,7 +286,7 @@ spec:
     spec:
       containers:
       - name: vpa-nginx
-        image: stacksimplify/kubenginx:1.0.0
+        image: nholuongut/kubenginx:1.0.0
         ports:
         - containerPort: 80
         resources:
@@ -537,7 +537,7 @@ resource "kubernetes_deployment_v1" "vpa_demo_app" {
 
       spec {
         container {
-          image = "stacksimplify/kubenginx:1.0.0"
+          image = "nholuongut/kubenginx:1.0.0"
           name  = "vpa-nginx"
           port {
             container_port = 80

@@ -27,7 +27,7 @@ description: Learn to use AWS NLB TLS and External DNS with AWS Load Balancer Co
 - **File Name:** `04-kube-manifests-nlb-tls-externaldns\02-LBC-NLB-LoadBalancer-Service.yml`
 ```yaml
     # External DNS - For creating a Record Set in Route53
-    external-dns.alpha.kubernetes.io/hostname: nlbdns101.stacksimplify.com
+    external-dns.alpha.kubernetes.io/hostname: nlbdns101.nholuongut.com
 ```
 
 ## Step-03: Deploy all kube-manifests
@@ -62,14 +62,14 @@ Observation: Should see two target groups. 1 Target group for 1 listener
 kubectl logs -f $(kubectl get po | egrep -o 'external-dns[A-Za-z0-9-]+')
 
 # Perform nslookup Test
-nslookup nlbdns101.stacksimplify.com
+nslookup nlbdns101.nholuongut.com
 
 # Access Application
 # Test HTTP URL
-http://nlbdns101.stacksimplify.com
+http://nlbdns101.nholuongut.com
 
 # Test HTTPS URL
-https://nlbdns101.stacksimplify.com
+https://nlbdns101.nholuongut.com
 ```
 
 ## Step-04: Clean-Up
@@ -126,7 +126,7 @@ resource "kubernetes_service_v1" "myapp3_nlb_service" {
       "service.beta.kubernetes.io/aws-load-balancer-backend-protocol" = "tcp"
 
       # External DNS - For creating a Record Set in Route53
-      "external-dns.alpha.kubernetes.io/hostname" = "tfnlbdns101.stacksimplify.com"
+      "external-dns.alpha.kubernetes.io/hostname" = "tfnlbdns101.nholuongut.com"
     }        
   }
   spec {
@@ -196,14 +196,14 @@ Go to Services -> EC2 -> Load Balancing -> Target Groups
 kubectl logs -f $(kubectl get po | egrep -o 'external-dns[A-Za-z0-9-]+')
 
 # Perform nslookup Test
-nslookup nlbdns101.stacksimplify.com
+nslookup nlbdns101.nholuongut.com
 
 # Access Application
 # Test HTTP URL
-http://nlbdns101.stacksimplify.com
+http://nlbdns101.nholuongut.com
 
 # Test HTTPS URL
-https://nlbdns101.stacksimplify.com
+https://nlbdns101.nholuongut.com
 ```
 
 ## Step-09: Clean-Up

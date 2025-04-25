@@ -72,9 +72,9 @@ kubectl -n fp-ns-app1 get svc
 kubectl -n fp-ns-app1 get ingress
 
 # Access Application
-http://fargate-profile-demo-501.stacksimplify.com
-http://fargate-profile-demo-501.stacksimplify.com/app1/index.html
-http://fargate-profile-demo-501.stacksimplify.com/app2/index.html
+http://fargate-profile-demo-501.nholuongut.com
+http://fargate-profile-demo-501.nholuongut.com/app1/index.html
+http://fargate-profile-demo-501.nholuongut.com/app2/index.html
 ```
 
 ## Step-05: Review Pod Memory and CPU - Default Allocated

@@ -32,7 +32,7 @@ spec:
     spec:
       containers:
         - name: app3-nginx
-          image: stacksimplify/kubenginx:1.0.0
+          image: nholuongut/kubenginx:1.0.0
           ports:
             - containerPort: 80
 ```
@@ -256,7 +256,7 @@ resource "kubernetes_deployment_v1" "myapp3" {
 
       spec {
         container {
-          image = "stacksimplify/kubenginx:1.0.0"
+          image = "nholuongut/kubenginx:1.0.0"
           name  = "app3-nginx"
           port {
             container_port = 80

@@ -9,7 +9,7 @@ description: Deploy sample application to EKS Cluster
 - Create k8s Load Balancer Service manifest using YAML with annotations concept which creates AWS Network Load Balancer
 
 ## Pre-requisite-1: YAML Quick Reference
-- [YAML Basics will part of Docker and Kubernetes Fundamentals](https://github.com/stacksimplify/kubernetes-fundamentals/tree/master/06-YAML-Basics)
+- [YAML Basics will part of Docker and Kubernetes Fundamentals](https://github.com/nholuongut/kubernetes-fundamentals/tree/master/06-YAML-Basics)
 ```t
 # YAML in simple terms
 ## --- Separate YAML Document
@@ -54,7 +54,7 @@ spec: # Dictionary
     spec:
       containers: # List
         - name: myapp1-container
-          image: stacksimplify/kubenginx:1.0.0
+          image: nholuongut/kubenginx:1.0.0
           ports: 
             - containerPort: 80  
     

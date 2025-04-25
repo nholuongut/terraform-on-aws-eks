@@ -17,13 +17,13 @@ description: Learn AWS Load Balancer Controller - Ingress Context Path Routing a
   - **Kubernetes Deployment:** Container Image name
   - **Kubernetes Node Port Service:** Health check URL path 
 - **App1 Nginx: 01-Nginx-App1-Deployment-and-NodePortService.yml**
-  - **image:** stacksimplify/kube-nginxapp1:1.0.0
+  - **image:** nholuongut/kube-nginxapp1:1.0.0
   - **Annotation:** alb.ingress.kubernetes.io/healthcheck-path: /app1/index.html
 - **App2 Nginx: 02-Nginx-App2-Deployment-and-NodePortService.yml**
-  - **image:** stacksimplify/kube-nginxapp2:1.0.0
+  - **image:** nholuongut/kube-nginxapp2:1.0.0
   - **Annotation:** alb.ingress.kubernetes.io/healthcheck-path: /app2/index.html
 - **App3 Nginx: 03-Nginx-App3-Deployment-and-NodePortService.yml**
-  - **image:** stacksimplify/kubenginx:1.0.0
+  - **image:** nholuongut/kubenginx:1.0.0
   - **Annotation:** alb.ingress.kubernetes.io/healthcheck-path: /index.html
 
 
@@ -228,7 +228,7 @@ resource "kubernetes_deployment_v1" "myapp1" {
 
       spec {
         container {
-          image = "stacksimplify/kube-nginxapp1:1.0.0"
+          image = "nholuongut/kube-nginxapp1:1.0.0"
           name  = "app1-nginx"
           port {
             container_port = 80
@@ -270,7 +270,7 @@ resource "kubernetes_deployment_v1" "myapp2" {
 
       spec {
         container {
-          image = "stacksimplify/kube-nginxapp2:1.0.0"
+          image = "nholuongut/kube-nginxapp2:1.0.0"
           name  = "app2-nginx"
           port {
             container_port = 80
@@ -312,7 +312,7 @@ resource "kubernetes_deployment_v1" "myapp3" {
 
       spec {
         container {
-          image = "stacksimplify/kubenginx:1.0.0"
+          image = "nholuongut/kubenginx:1.0.0"
           name  = "app3-nginx"
           port {
             container_port = 80

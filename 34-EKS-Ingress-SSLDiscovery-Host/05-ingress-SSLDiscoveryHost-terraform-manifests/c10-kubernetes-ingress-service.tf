@@ -27,13 +27,13 @@ resource "kubernetes_ingress_v1" "ingress" {
       # SSL Redirect Setting
       "alb.ingress.kubernetes.io/ssl-redirect" = 443
     # External DNS - For creating a Record Set in Route53
-      "external-dns.alpha.kubernetes.io/hostname" = "tfdefault102.stacksimplify.com"
+      "external-dns.alpha.kubernetes.io/hostname" = "tfdefault102.nholuongut.com"
     }    
   }
 
   spec {
     ingress_class_name = "my-aws-ingress-class" # Ingress Class        
-    # Default Rule: Route requests to App3 if the DNS is "tfdefault101.stacksimplify.com"        
+    # Default Rule: Route requests to App3 if the DNS is "tfdefault101.nholuongut.com"        
     default_backend {
       service {
         name = kubernetes_service_v1.myapp3_np_service.metadata[0].name
@@ -43,9 +43,9 @@ resource "kubernetes_ingress_v1" "ingress" {
       }
     }
 
-    # Rule-1: Route requests to App1 if the DNS is "tfapp101.stacksimplify.com"
+    # Rule-1: Route requests to App1 if the DNS is "tfapp101.nholuongut.com"
     rule {
-      host = "tfapp102.stacksimplify.com"      
+      host = "tfapp102.nholuongut.com"      
       http {
         path {
           backend {
@@ -62,9 +62,9 @@ resource "kubernetes_ingress_v1" "ingress" {
       }        
     }
 
-    # Rule-2: Route requests to App2 if the DNS is "tfapp102.stacksimplify.com"
+    # Rule-2: Route requests to App2 if the DNS is "tfapp102.nholuongut.com"
     rule {
-      host = "tfapp202.stacksimplify.com"      
+      host = "tfapp202.nholuongut.com"      
       http {
         path {
           backend {

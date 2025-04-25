@@ -27,7 +27,7 @@
 
 ## Step-02: c2-variables.tf - Define Input Variables in Terraform
 - [Terraform Input Variables](https://www.terraform.io/docs/language/values/variables.html)
-- [Terraform Input Variable Usage - 10 different types](https://github.com/stacksimplify/hashicorp-certified-terraform-associate/tree/main/05-Terraform-Variables/05-01-Terraform-Input-Variables)
+- [Terraform Input Variable Usage - 10 different types](https://github.com/nholuongut/hashicorp-certified-terraform-associate/tree/main/05-Terraform-Variables/05-01-Terraform-Input-Variables)
 ```t
 # AWS Region
 variable "aws_region" {

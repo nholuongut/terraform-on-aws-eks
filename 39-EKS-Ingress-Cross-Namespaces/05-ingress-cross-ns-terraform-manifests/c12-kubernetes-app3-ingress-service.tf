@@ -26,7 +26,7 @@ resource "kubernetes_ingress_v1" "ingress_app3" {
       # SSL Redirect Setting
       "alb.ingress.kubernetes.io/ssl-redirect" = 443
       # External DNS - For creating a Record Set in Route53
-      "external-dns.alpha.kubernetes.io/hostname" = "tfingress-crossns-demo401.stacksimplify.com"
+      "external-dns.alpha.kubernetes.io/hostname" = "tfingress-crossns-demo401.nholuongut.com"
       # Ingress Groups
       "alb.ingress.kubernetes.io/group.name" = "myapps.web"
       "alb.ingress.kubernetes.io/group.order" = 30

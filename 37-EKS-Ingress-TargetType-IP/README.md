@@ -51,7 +51,7 @@ kubectl logs -f $(kubectl get po | egrep -o 'external-dns[A-Za-z0-9-]+')
 ### Verify Route53
 - Go to Services -> Route53
 - You should see **Record Sets** added for 
-  - target-type-ip-501.stacksimplify.com 
+  - target-type-ip-501.nholuongut.com 
 
 
 ## Step-04: Access Application using newly registered DNS Name
@@ -59,18 +59,18 @@ kubectl logs -f $(kubectl get po | egrep -o 'external-dns[A-Za-z0-9-]+')
 - Test if our new DNS entries registered and resolving to an IP Address
 ```t
 # nslookup commands
-nslookup target-type-ip-501.stacksimplify.com 
+nslookup target-type-ip-501.nholuongut.com 
 ```
 ### Access Application using DNS domain
 ```t
 # Access App1
-http://target-type-ip-501.stacksimplify.com /app1/index.html
+http://target-type-ip-501.nholuongut.com /app1/index.html
 
 # Access App2
-http://target-type-ip-501.stacksimplify.com /app2/index.html
+http://target-type-ip-501.nholuongut.com /app2/index.html
 
 # Access Default App (App3)
-http://target-type-ip-501.stacksimplify.com 
+http://target-type-ip-501.nholuongut.com 
 ```
 
 ## Step-05: Clean Up
@@ -81,7 +81,7 @@ kubectl delete -f 04-kube-manifests-ingress-TargetType-IP
 ## Verify Route53 Record Set to ensure our DNS records got deleted
 - Go to Route53 -> Hosted Zones -> Records 
 - The below records should be deleted automatically
-  - target-type-ip-501.stacksimplify.com 
+  - target-type-ip-501.nholuongut.com 
 ```
 
 
@@ -131,7 +131,7 @@ resource "kubernetes_ingress_v1" "ingress" {
       # SSL Redirect Setting
       "alb.ingress.kubernetes.io/ssl-redirect" = 443
       # External DNS - For creating a Record Set in Route53
-      "external-dns.alpha.kubernetes.io/hostname" = "tftarget-type-ip-501.stacksimplify.com"
+      "external-dns.alpha.kubernetes.io/hostname" = "tftarget-type-ip-501.nholuongut.com"
       # Target Type: IP (Defaults to Instance if not specified)
       "alb.ingress.kubernetes.io/target-type" = "ip"
     }    
@@ -139,7 +139,7 @@ resource "kubernetes_ingress_v1" "ingress" {
 
   spec {
     ingress_class_name = "my-aws-ingress-class" # Ingress Class        
-    # Default Rule: Route requests to App3 if the DNS is "tfdefault101.stacksimplify.com"        
+    # Default Rule: Route requests to App3 if the DNS is "tfdefault101.nholuongut.com"        
     default_backend {
       service {
         name = kubernetes_service_v1.myapp3_np_service.metadata[0].name
@@ -221,7 +221,7 @@ kubectl logs -f $(kubectl get po | egrep -o 'external-dns[A-Za-z0-9-]+')
 ## Step-11: Verify Route53
 - Go to Services -> Route53
 - You should see **Record Set** added for 
-  - tftarget-type-ip-501.stacksimplify.com
+  - tftarget-type-ip-501.nholuongut.com
 
 
 ## Step-12: Access Application using newly registered DNS Name
@@ -229,18 +229,18 @@ kubectl logs -f $(kubectl get po | egrep -o 'external-dns[A-Za-z0-9-]+')
 - Test if our new DNS entries registered and resolving to an IP Address
 ```t
 # nslookup commands
-nslookup tftarget-type-ip-501.stacksimplify.com
+nslookup tftarget-type-ip-501.nholuongut.com
 ```
 ## Step-13: Access Application 
 ```t
 # Access App1
-http://tftarget-type-ip-501.stacksimplify.com/app1/index.html
+http://tftarget-type-ip-501.nholuongut.com/app1/index.html
 
 # Access App2
-http://tftarget-type-ip-501.stacksimplify.com/app2/index.html
+http://tftarget-type-ip-501.nholuongut.com/app2/index.html
 
 # Access Default App (App3)
-http://tftarget-type-ip-501.stacksimplify.com
+http://tftarget-type-ip-501.nholuongut.com
 ```
 ## Step-14: Clean-Up Ingress
 ```t

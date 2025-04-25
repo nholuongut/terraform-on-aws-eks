@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: app2-nginx
-          image: stacksimplify/kube-nginxapp2:1.0.0
+          image: nholuongut/kube-nginxapp2:1.0.0
           ports:
             - containerPort: 80
 ---

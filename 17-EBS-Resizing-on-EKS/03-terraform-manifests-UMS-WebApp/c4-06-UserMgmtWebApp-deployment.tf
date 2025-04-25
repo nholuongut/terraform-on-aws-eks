@@ -23,7 +23,7 @@ resource "kubernetes_deployment_v1" "usermgmt_webapp" {
       }
       spec {
         container {
-          image = "stacksimplify/kube-usermgmt-webapp:1.0.0-MySQLDB"
+          image = "nholuongut/kube-usermgmt-webapp:1.0.0-MySQLDB"
           name  = "usermgmt-webapp"
           #image_pull_policy = "always"  # Defaults to Always so we can comment this
           port {

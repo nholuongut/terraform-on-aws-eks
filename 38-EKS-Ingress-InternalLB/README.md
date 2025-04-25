@@ -137,7 +137,7 @@ resource "kubernetes_ingress_v1" "ingress" {
   }
   spec {
     ingress_class_name = "my-aws-ingress-class" # Ingress Class        
-    # Default Rule: Route requests to App3 if the DNS is "tfdefault101.stacksimplify.com"        
+    # Default Rule: Route requests to App3 if the DNS is "tfdefault101.nholuongut.com"        
     default_backend {
       service {
         name = kubernetes_service_v1.myapp3_np_service.metadata[0].name

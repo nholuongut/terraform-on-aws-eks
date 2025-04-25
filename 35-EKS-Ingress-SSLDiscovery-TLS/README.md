@@ -8,7 +8,7 @@ description: Implement Ingress SSL Discovery TLS so that AWS ACM Certificate wil
 - Automatically disover SSL Certificate from AWS Certificate Manager Service using `spec.tls.host`
 - In this approach, with the specified domain name if we have the SSL Certificate created in AWS Certificate Manager, that certificate will be automatically detected and associated to Application Load Balancer.
 - We don't need to get the SSL Certificate ARN and update it in Kubernetes Ingress Manifest
-- Discovers via Ingress rule host and attaches a cert for `app102.stacksimplify.com` or `*.stacksimplify.com` to the ALB
+- Discovers via Ingress rule host and attaches a cert for `app102.nholuongut.com` or `*.nholuongut.com` to the ALB
 
 ## Step-02: Discover via Ingress "spec.tls.hosts"
 ```yaml
@@ -39,7 +39,7 @@ metadata:
     # SSL Redirect Setting
     alb.ingress.kubernetes.io/ssl-redirect: '443'
     # External DNS - For creating a Record Set in Route53
-    external-dns.alpha.kubernetes.io/hostname: certdiscovery-tls-101.stacksimplify.com 
+    external-dns.alpha.kubernetes.io/hostname: certdiscovery-tls-101.nholuongut.com 
 spec:
   ingressClassName: my-aws-ingress-class   # Ingress Class                  
   defaultBackend:
@@ -49,7 +49,7 @@ spec:
         number: 80     
   tls:
   - hosts:
-    - "*.stacksimplify.com"
+    - "*.nholuongut.com"
   rules:
     - http:
         paths:
@@ -107,7 +107,7 @@ kubectl logs -f $(kubectl get po | egrep -o 'external-dns[A-Za-z0-9-]+')
 ### Verify Route53
 - Go to Services -> Route53
 - You should see **Record Sets** added for 
-  - certdiscovery-tls-901.stacksimplify.com 
+  - certdiscovery-tls-901.nholuongut.com 
 
 
 ## Step-04: Access Application using newly registered DNS Name
@@ -115,18 +115,18 @@ kubectl logs -f $(kubectl get po | egrep -o 'external-dns[A-Za-z0-9-]+')
 - Test if our new DNS entries registered and resolving to an IP Address
 ```t
 # nslookup commands
-nslookup certdiscovery-tls-101.stacksimplify.com 
+nslookup certdiscovery-tls-101.nholuongut.com 
 ```
 ### Access Application using DNS domain
 ```t
 # Access App1
-http://certdiscovery-tls-101.stacksimplify.com/app1/index.html
+http://certdiscovery-tls-101.nholuongut.com/app1/index.html
 
 # Access App2
-http://certdiscovery-tls-101.stacksimplify.com/app2/index.html
+http://certdiscovery-tls-101.nholuongut.com/app2/index.html
 
 # Access Default App (App3)
-http://certdiscovery-tls-101.stacksimplify.com
+http://certdiscovery-tls-101.nholuongut.com
 ```
 
 ## Step-05: Clean Up
@@ -137,7 +137,7 @@ kubectl delete -f 04-kube-manifests-SSLDiscoveryTLS/
 ## Verify Route53 Record Set to ensure our DNS records got deleted
 - Go to Route53 -> Hosted Zones -> Records 
 - The below records should be deleted automatically
-  - certdiscovery-tls-101.stacksimplify.com 
+  - certdiscovery-tls-101.nholuongut.com 
 ```
 
 ## Step-06: Review Terraform Manifests 
@@ -227,7 +227,7 @@ resource "kubernetes_ingress_v1" "ingress" {
       # SSL Redirect Setting
       "alb.ingress.kubernetes.io/ssl-redirect" = 443
     # External DNS - For creating a Record Set in Route53
-      "external-dns.alpha.kubernetes.io/hostname" = "tfcertdiscovery-tls-102.stacksimplify.com"
+      "external-dns.alpha.kubernetes.io/hostname" = "tfcertdiscovery-tls-102.nholuongut.com"
     }    
   }
   spec {
@@ -242,7 +242,7 @@ resource "kubernetes_ingress_v1" "ingress" {
     }
     # SSL Certificate Discovery using TLS
     tls {
-      hosts = [ "*.stacksimplify.com" ]
+      hosts = [ "*.nholuongut.com" ]
     }      
     rule {
       http {
@@ -317,29 +317,29 @@ kubectl logs -f $(kubectl get po | egrep -o 'external-dns[A-Za-z0-9-]+')
 ## Step-11: Verify Route53
 - Go to Services -> Route53
 - You should see **Record Sets** added for 
-  - tfapp101.stacksimplify.com
-  - tfapp201.stacksimplify.com
-  - tfdefault101.stacksimplify.com
+  - tfapp101.nholuongut.com
+  - tfapp201.nholuongut.com
+  - tfdefault101.nholuongut.com
 
 ## Step-12: Access Application using newly registered DNS Name
 - Perform nslookup tests before accessing Application
 - Test if our new DNS entries registered and resolving to an IP Address
 ```t
 # nslookup commands
-nslookup tfapp101.stacksimplify.com
-nslookup tfapp201.stacksimplify.com
-nslookup tfdefault101.stacksimplify.com
+nslookup tfapp101.nholuongut.com
+nslookup tfapp201.nholuongut.com
+nslookup tfdefault101.nholuongut.com
 ```
 ## Step-13: Access Application 
 ```t
 # Access App1
-http://tfapp101.stacksimplify.com/app1/index.html
+http://tfapp101.nholuongut.com/app1/index.html
 
 # Access App2
-http://tfapp201.stacksimplify.com/app2/index.html
+http://tfapp201.nholuongut.com/app2/index.html
 
 # Access Default App (App3)
-http://tfdefault101.stacksimplify.com
+http://tfdefault101.nholuongut.com
 ```
 
 

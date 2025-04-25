@@ -180,7 +180,7 @@ spec:
           command: ['sh', '-c', 'echo -e "Checking for the availability of MySQL Server deployment"; while ! nc -z mysql 3306; do sleep 1; printf "-"; done; echo -e "  >> MySQL DB Server has started";']      
       containers:
         - name: usermgmt-webapp
-          image: stacksimplify/kube-usermgmt-webapp:1.0.0-MySQLDB
+          image: nholuongut/kube-usermgmt-webapp:1.0.0-MySQLDB
           imagePullPolicy: Always
           ports: 
             - containerPort: 8080           
@@ -320,7 +320,7 @@ mysql> select * from user;
 +--------+----------------------------+------------+-----------+--------------------------------------------------------------+--------+-----------+
 | userid | email_address              | first_name | last_name | password                                                     | ssn    | user_name |
 +--------+----------------------------+------------+-----------+--------------------------------------------------------------+--------+-----------+
-|    101 | admin101@stacksimplify.com | Kalyan     | Reddy     | $2a$10$w.2Z0pQl9K5GOMVT.y2Jz.UW4Au7819nbzNh8nZIYhbnjCi6MG8Qu | ssn101 | admin101  |
+|    101 | admin101@nholuongut.com | Kalyan     | Reddy     | $2a$10$w.2Z0pQl9K5GOMVT.y2Jz.UW4Au7819nbzNh8nZIYhbnjCi6MG8Qu | ssn101 | admin101  |
 +--------+----------------------------+------------+-----------+--------------------------------------------------------------+--------+-----------+
 1 row in set (0.00 sec)
 mysql> 

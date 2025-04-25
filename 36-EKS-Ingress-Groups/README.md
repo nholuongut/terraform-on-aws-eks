@@ -55,9 +55,9 @@ Observation:
 ## Step-07: Verify by accessing in browser
 ```t
 # Web URLs
-http://ingress-groups-demo601.stacksimplify.com/app1/index.html
-http://ingress-groups-demo601.stacksimplify.com/app2/index.html
-http://ingress-groups-demo601.stacksimplify.com
+http://ingress-groups-demo601.nholuongut.com/app1/index.html
+http://ingress-groups-demo601.nholuongut.com/app2/index.html
+http://ingress-groups-demo601.nholuongut.com
 ```
 
 ## Step-08: Clean-Up
@@ -68,7 +68,7 @@ kubectl delete -R -f 04-kube-manifests-ingress-groups/
 ## Verify Route53 Record Set to ensure our DNS records got deleted
 - Go to Route53 -> Hosted Zones -> Records 
 - The below records should be deleted automatically
-  - ingress-groups-demo601.stacksimplify.com
+  - ingress-groups-demo601.nholuongut.com
 ```
 
 
@@ -117,7 +117,7 @@ resource "kubernetes_ingress_v1" "ingress_app1" {
       # SSL Redirect Setting
       "alb.ingress.kubernetes.io/ssl-redirect" = 443
       # External DNS - For creating a Record Set in Route53
-      "external-dns.alpha.kubernetes.io/hostname" = "tfingress-groups-demo102.stacksimplify.com"
+      "external-dns.alpha.kubernetes.io/hostname" = "tfingress-groups-demo102.nholuongut.com"
       # Ingress Groups
       "alb.ingress.kubernetes.io/group.name" = "myapps.web"
       "alb.ingress.kubernetes.io/group.order" = 10
@@ -177,7 +177,7 @@ resource "kubernetes_ingress_v1" "ingress_app2" {
       # SSL Redirect Setting
       "alb.ingress.kubernetes.io/ssl-redirect" = 443
       # External DNS - For creating a Record Set in Route53
-      "external-dns.alpha.kubernetes.io/hostname" = "tfingress-groups-demo102.stacksimplify.com"
+      "external-dns.alpha.kubernetes.io/hostname" = "tfingress-groups-demo102.nholuongut.com"
       # Ingress Groups
       "alb.ingress.kubernetes.io/group.name" = "myapps.web"
       "alb.ingress.kubernetes.io/group.order" = 20
@@ -237,7 +237,7 @@ resource "kubernetes_ingress_v1" "ingress_app3" {
       # SSL Redirect Setting
       "alb.ingress.kubernetes.io/ssl-redirect" = 443
       # External DNS - For creating a Record Set in Route53
-      "external-dns.alpha.kubernetes.io/hostname" = "tfingress-groups-demo102.stacksimplify.com"
+      "external-dns.alpha.kubernetes.io/hostname" = "tfingress-groups-demo102.nholuongut.com"
       # Ingress Groups
       "alb.ingress.kubernetes.io/group.name" = "myapps.web"
       "alb.ingress.kubernetes.io/group.order" = 30
@@ -300,7 +300,7 @@ kubectl logs -f $(kubectl get po | egrep -o 'external-dns[A-Za-z0-9-]+')
 ## Step-16: Verify Route53
 - Go to Services -> Route53
 - You should see **Record Set** added for 
-  - tfingress-groups-demo101.stacksimplify.com
+  - tfingress-groups-demo101.nholuongut.com
 
 
 ## Step-17: Access Application using newly registered DNS Name
@@ -308,18 +308,18 @@ kubectl logs -f $(kubectl get po | egrep -o 'external-dns[A-Za-z0-9-]+')
 - Test if our new DNS entries registered and resolving to an IP Address
 ```t
 # nslookup commands
-nslookup tfingress-groups-demo102.stacksimplify.com
+nslookup tfingress-groups-demo102.nholuongut.com
 ```
 ## Step-18: Access Application 
 ```t
 # Access App1
-http://tfingress-groups-demo102.stacksimplify.com/app1/index.html
+http://tfingress-groups-demo102.nholuongut.com/app1/index.html
 
 # Access App2
-http://tfingress-groups-demo102.stacksimplify.com/app2/index.html
+http://tfingress-groups-demo102.nholuongut.com/app2/index.html
 
 # Access Default App (App3)
-http://tfingress-groups-demo102.stacksimplify.com
+http://tfingress-groups-demo102.nholuongut.com
 ```
 
 

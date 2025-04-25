@@ -7,7 +7,7 @@ metadata:
   annotations:
 #Important Note:  Need to add health check path annotations in service level if we are planning to use multiple targets in a load balancer    
     alb.ingress.kubernetes.io/healthcheck-path: /app1/index.html
-    external-dns.alpha.kubernetes.io/hostname: extdns-k8s-service-demo101.stacksimplify.com
+    external-dns.alpha.kubernetes.io/hostname: extdns-k8s-service-demo101.nholuongut.com
 spec:
   type: LoadBalancer
   selector:

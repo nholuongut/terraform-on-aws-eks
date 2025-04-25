@@ -6,7 +6,7 @@ description: Learn to update AWS Route53 records using ExternalDNS in Kubernetes
 
 ## Step-01: Introduction
 - We will create a Kubernetes Service of `type: LoadBalancer`
-- We will annotate that Service with external DNS hostname `external-dns.alpha.kubernetes.io/hostname: externaldns-k8s-service-demo101.stacksimplify.com` which will register the DNS in Route53 for that respective load balancer
+- We will annotate that Service with external DNS hostname `external-dns.alpha.kubernetes.io/hostname: externaldns-k8s-service-demo101.nholuongut.com` which will register the DNS in Route53 for that respective load balancer
 
 ## Step-02: 02-Nginx-App1-LoadBalancer-Service.yml
 - **Project Folder:** 04-kube-manifests-k8sService-externaldns
@@ -20,7 +20,7 @@ metadata:
   annotations:
 #Important Note:  Need to add health check path annotations in service level if we are planning to use multiple targets in a load balancer    
     alb.ingress.kubernetes.io/healthcheck-path: /app1/index.html
-    external-dns.alpha.kubernetes.io/hostname: extdns-k8s-service-demo101.stacksimplify.com
+    external-dns.alpha.kubernetes.io/hostname: extdns-k8s-service-demo101.nholuongut.com
 spec:
   type: LoadBalancer
   selector:
@@ -56,7 +56,7 @@ kubectl logs -f $(kubectl get po | egrep -o 'external-dns[A-Za-z0-9-]+')
 ```
 ### Verify Route53
 - Go to Services -> Route53
-- You should see **Record Sets** added for `extdns-k8s-service-demo101.stacksimplify.com`
+- You should see **Record Sets** added for `extdns-k8s-service-demo101.nholuongut.com`
 
 
 ## Step-04: Access Application using newly registered DNS Name
@@ -64,12 +64,12 @@ kubectl logs -f $(kubectl get po | egrep -o 'external-dns[A-Za-z0-9-]+')
 - Test if our new DNS entries registered and resolving to an IP Address
 ```t
 # nslookup commands
-nslookup extdns-k8s-service-demo101.stacksimplify.com
+nslookup extdns-k8s-service-demo101.nholuongut.com
 ```
 ### Access Application using DNS domain
 ```t
 # HTTP URL
-http://extdns-k8s-service-demo101.stacksimplify.com/app1/index.html
+http://extdns-k8s-service-demo101.nholuongut.com/app1/index.html
 ```
 
 ## Step-05: Clean Up
@@ -80,7 +80,7 @@ kubectl delete -f 04-kube-manifests-k8sService-externaldns/
 ## Verify Route53 Record Set to ensure our DNS records got deleted
 - Go to Route53 -> Hosted Zones -> Records 
 - The below records should be deleted automatically
-  - extdns-k8s-service-demo101.stacksimplify.com
+  - extdns-k8s-service-demo101.nholuongut.com
 ```
 
 
@@ -100,7 +100,7 @@ resource "kubernetes_service_v1" "myapp1_np_service" {
     name = "app1-nginx-loadbalancer-service"
     annotations = {
       "alb.ingress.kubernetes.io/healthcheck-path" = "/app1/index.html"
-      "external-dns.alpha.kubernetes.io/hostname" = "tfextdns-k8s-service-demo101.stacksimplify.com"
+      "external-dns.alpha.kubernetes.io/hostname" = "tfextdns-k8s-service-demo101.nholuongut.com"
     }
   }
   spec {
@@ -156,20 +156,20 @@ kubectl logs -f $(kubectl get po | egrep -o 'external-dns[A-Za-z0-9-]+')
 
 ## Step-11: Verify Route53
 - Go to Services -> Route53
-- You should see **Record Sets** added for `tfextdns-k8s-service-demo101.stacksimplify.com`
+- You should see **Record Sets** added for `tfextdns-k8s-service-demo101.nholuongut.com`
 
 ## Step-12: Access Application using newly registered DNS Name
 - Perform nslookup tests before accessing Application
 - Test if our new DNS entries registered and resolving to an IP Address
 ```t
 # nslookup commands
-nslookup tfextdns-k8s-service-demo101.stacksimplify.com
+nslookup tfextdns-k8s-service-demo101.nholuongut.com
 ```
 ## Step-13: Access Application 
 ```t
 ## Access Application using dnstest1 domain
 # HTTP URLs (Should Redirect to HTTPS)
-http://tfextdns-k8s-service-demo101.stacksimplify.com/app1/index.html
+http://tfextdns-k8s-service-demo101.nholuongut.com/app1/index.html
 ```
 
 

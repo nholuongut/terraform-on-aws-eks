@@ -31,7 +31,7 @@ resource "kubernetes_service_v1" "myapp3_nlb_service" {
       "service.beta.kubernetes.io/aws-load-balancer-backend-protocol" = "tcp"
 
       # External DNS - For creating a Record Set in Route53
-      "external-dns.alpha.kubernetes.io/hostname" = "tfnlbdns101.stacksimplify.com"
+      "external-dns.alpha.kubernetes.io/hostname" = "tfnlbdns101.nholuongut.com"
     }        
   }
   spec {

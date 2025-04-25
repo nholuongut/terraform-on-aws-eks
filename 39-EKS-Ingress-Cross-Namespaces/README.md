@@ -92,9 +92,9 @@ Observation:
 ## Step-09: Verify by accessing in browser
 ```t
 # Web URLs
-http://ingress-crossns-demo.stacksimplify.com/app1/index.html
-http://ingress-crossns-demo.stacksimplify.com/app2/index.html
-http://ingress-crossns-demo.stacksimplify.com
+http://ingress-crossns-demo.nholuongut.com/app1/index.html
+http://ingress-crossns-demo.nholuongut.com/app2/index.html
+http://ingress-crossns-demo.nholuongut.com
 ```
 
 ## Step-10: Clean-Up
@@ -105,7 +105,7 @@ kubectl delete -R -f 04-kube-manifests-ingress-cross-ns/
 ## Verify Route53 Record Set to ensure our DNS records got deleted
 - Go to Route53 -> Hosted Zones -> Records 
 - The below records should be deleted automatically
-  - ingress-crossns-demo.stacksimplify.com
+  - ingress-crossns-demo.nholuongut.com
 ```
 
 ## Step-11: Review Terraform Manifests 
@@ -207,7 +207,7 @@ kubectl logs -f $(kubectl get po | egrep -o 'external-dns[A-Za-z0-9-]+')
 ## Step-17: Verify Route53
 - Go to Services -> Route53
 - You should see **Record Set** added for 
-  - tfingress-crossns-demo401.stacksimplify.com
+  - tfingress-crossns-demo401.nholuongut.com
 
 
 ## Step-18: Access Application using newly registered DNS Name
@@ -215,18 +215,18 @@ kubectl logs -f $(kubectl get po | egrep -o 'external-dns[A-Za-z0-9-]+')
 - Test if our new DNS entries registered and resolving to an IP Address
 ```t
 # nslookup commands
-nslookup tfingress-crossns-demo401.stacksimplify.com
+nslookup tfingress-crossns-demo401.nholuongut.com
 ```
 ## Step-19: Access Application 
 ```t
 # Access App1
-http://tfingress-crossns-demo401.stacksimplify.com/app1/index.html
+http://tfingress-crossns-demo401.nholuongut.com/app1/index.html
 
 # Access App2
-http://tfingress-crossns-demo401.stacksimplify.com/app2/index.html
+http://tfingress-crossns-demo401.nholuongut.com/app2/index.html
 
 # Access Default App (App3)
-http://tfingress-crossns-demo401.stacksimplify.com
+http://tfingress-crossns-demo401.nholuongut.com
 ```
 
 

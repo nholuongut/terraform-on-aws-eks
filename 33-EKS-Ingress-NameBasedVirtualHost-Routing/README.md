@@ -38,7 +38,7 @@ metadata:
     # SSL Redirect Setting
     alb.ingress.kubernetes.io/ssl-redirect: '443'
     # External DNS - For creating a Record Set in Route53
-    external-dns.alpha.kubernetes.io/hostname: default101.stacksimplify.com 
+    external-dns.alpha.kubernetes.io/hostname: default101.nholuongut.com 
 spec:
   ingressClassName: my-aws-ingress-class   # Ingress Class                  
   defaultBackend:
@@ -47,7 +47,7 @@ spec:
       port:
         number: 80     
   rules:
-    - host: app101.stacksimplify.com
+    - host: app101.nholuongut.com
       http:
         paths:
           - path: /
@@ -57,7 +57,7 @@ spec:
                 name: app1-nginx-nodeport-service
                 port: 
                   number: 80
-    - host: app201.stacksimplify.com
+    - host: app201.nholuongut.com
       http:
         paths:                  
           - path: /
@@ -108,42 +108,42 @@ kubectl logs -f $(kubectl get po | egrep -o 'external-dns[A-Za-z0-9-]+')
 ### Verify Route53
 - Go to Services -> Route53
 - You should see **Record Sets** added for 
-  - default101.stacksimplify.com
-  - app101.stacksimplify.com
-  - app201.stacksimplify.com
+  - default101.nholuongut.com
+  - app101.nholuongut.com
+  - app201.nholuongut.com
 
 ## Step-04: Access Application using newly registered DNS Name
 ### Perform nslookup tests before accessing Application
 - Test if our new DNS entries registered and resolving to an IP Address
 ```t
 # nslookup commands
-nslookup default101.stacksimplify.com
-nslookup app101.stacksimplify.com
-nslookup app201.stacksimplify.com
+nslookup default101.nholuongut.com
+nslookup app101.nholuongut.com
+nslookup app201.nholuongut.com
 ```
 ### Positive Case: Access Application using DNS domain
 ```t
 # Access App1
-http://app101.stacksimplify.com/app1/index.html
+http://app101.nholuongut.com/app1/index.html
 
 # Access App2
-http://app201.stacksimplify.com/app2/index.html
+http://app201.nholuongut.com/app2/index.html
 
 # Access Default App (App3)
-http://default101.stacksimplify.com
+http://default101.nholuongut.com
 ```
 
 ### Negative Case: Access Application using DNS domain
 ```t
 # Access App2 using App1 DNS Domain
-http://app101.stacksimplify.com/app2/index.html  -- SHOULD FAIL
+http://app101.nholuongut.com/app2/index.html  -- SHOULD FAIL
 
 # Access App1 using App2 DNS Domain
-http://app201.stacksimplify.com/app1/index.html  -- SHOULD FAIL
+http://app201.nholuongut.com/app1/index.html  -- SHOULD FAIL
 
 # Access App1 and App2 using Default Domain
-http://default101.stacksimplify.com/app1/index.html -- SHOULD FAIL
-http://default101.stacksimplify.com/app2/index.html -- SHOULD FAIL
+http://default101.nholuongut.com/app1/index.html -- SHOULD FAIL
+http://default101.nholuongut.com/app2/index.html -- SHOULD FAIL
 ```
 
 ## Step-05: Clean Up
@@ -154,9 +154,9 @@ kubectl delete -f 04-kube-manifests-ingress-nvhr/
 ## Verify Route53 Record Set to ensure our DNS records got deleted
 - Go to Route53 -> Hosted Zones -> Records 
 - The below records should be deleted automatically
-  - default101.stacksimplify.com
-  - app101.stacksimplify.com
-  - app201.stacksimplify.com
+  - default101.nholuongut.com
+  - app101.nholuongut.com
+  - app201.nholuongut.com
 ```
 
 
@@ -206,13 +206,13 @@ resource "kubernetes_ingress_v1" "ingress" {
       # SSL Redirect Setting
       "alb.ingress.kubernetes.io/ssl-redirect" = 443
     # External DNS - For creating a Record Set in Route53
-      "external-dns.alpha.kubernetes.io/hostname" = "tfdefault101.stacksimplify.com"
+      "external-dns.alpha.kubernetes.io/hostname" = "tfdefault101.nholuongut.com"
     }    
   }
 
   spec {
     ingress_class_name = "my-aws-ingress-class" # Ingress Class        
-    # Default Rule: Route requests to App3 if the DNS is "tfdefault101.stacksimplify.com"        
+    # Default Rule: Route requests to App3 if the DNS is "tfdefault101.nholuongut.com"        
     default_backend {
       service {
         name = kubernetes_service_v1.myapp3_np_service.metadata[0].name
@@ -222,9 +222,9 @@ resource "kubernetes_ingress_v1" "ingress" {
       }
     }
 
-    # Rule-1: Route requests to App1 if the DNS is "tfapp101.stacksimplify.com"
+    # Rule-1: Route requests to App1 if the DNS is "tfapp101.nholuongut.com"
     rule {
-      host = "tfapp101.stacksimplify.com"      
+      host = "tfapp101.nholuongut.com"      
       http {
         path {
           backend {
@@ -241,9 +241,9 @@ resource "kubernetes_ingress_v1" "ingress" {
       }        
     }
 
-    # Rule-2: Route requests to App2 if the DNS is "tfapp102.stacksimplify.com"
+    # Rule-2: Route requests to App2 if the DNS is "tfapp102.nholuongut.com"
     rule {
-      host = "tfapp201.stacksimplify.com"      
+      host = "tfapp201.nholuongut.com"      
       http {
         path {
           backend {
@@ -303,29 +303,29 @@ kubectl logs -f $(kubectl get po | egrep -o 'external-dns[A-Za-z0-9-]+')
 ## Step-11: Verify Route53
 - Go to Services -> Route53
 - You should see **Record Sets** added for 
-  - tfapp101.stacksimplify.com
-  - tfapp201.stacksimplify.com
-  - tfdefault101.stacksimplify.com
+  - tfapp101.nholuongut.com
+  - tfapp201.nholuongut.com
+  - tfdefault101.nholuongut.com
 
 ## Step-12: Access Application using newly registered DNS Name
 - Perform nslookup tests before accessing Application
 - Test if our new DNS entries registered and resolving to an IP Address
 ```t
 # nslookup commands
-nslookup tfapp101.stacksimplify.com
-nslookup tfapp201.stacksimplify.com
-nslookup tfdefault101.stacksimplify.com
+nslookup tfapp101.nholuongut.com
+nslookup tfapp201.nholuongut.com
+nslookup tfdefault101.nholuongut.com
 ```
 ## Step-13: Access Application 
 ```t
 # Access App1
-http://tfapp101.stacksimplify.com/app1/index.html
+http://tfapp101.nholuongut.com/app1/index.html
 
 # Access App2
-http://tfapp201.stacksimplify.com/app2/index.html
+http://tfapp201.nholuongut.com/app2/index.html
 
 # Access Default App (App3)
-http://tfdefault101.stacksimplify.com
+http://tfdefault101.nholuongut.com
 ```
 
 

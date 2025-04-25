@@ -12,7 +12,7 @@ description: Learn to update AWS Route53 records using ExternalDNS in Ingress Se
 - **File Name:** 04-ALB-Ingress-SSL-Redirect-ExternalDNS.yml
 ```yaml
     # External DNS - For creating a Record Set in Route53
-    external-dns.alpha.kubernetes.io/hostname: dnstest901.stacksimplify.com, dnstest902.stacksimplify.com
+    external-dns.alpha.kubernetes.io/hostname: dnstest901.nholuongut.com, dnstest902.nholuongut.com
 ```
 - In your case it is going to be, replace `yourdomain` with your domain name
   - dnstest901.yourdoamin.com
@@ -47,30 +47,30 @@ kubectl logs -f $(kubectl get po | egrep -o 'external-dns[A-Za-z0-9-]+')
 ```
 ### Verify Route53
 - Go to Services -> Route53
-- You should see **Record Sets** added for `dnstest901.stacksimplify.com`, `dnstest902.stacksimplify.com`
+- You should see **Record Sets** added for `dnstest901.nholuongut.com`, `dnstest902.nholuongut.com`
 
 ## Step-04: Access Application using newly registered DNS Name
 ### Perform nslookup tests before accessing Application
 - Test if our new DNS entries registered and resolving to an IP Address
 ```t
 # nslookup commands
-nslookup dnstest901.stacksimplify.com
-nslookup dnstest902.stacksimplify.com
+nslookup dnstest901.nholuongut.com
+nslookup dnstest902.nholuongut.com
 ```
 ### Access Application using dnstest1 domain
 ```t
 # HTTP URLs (Should Redirect to HTTPS)
-http://dnstest901.stacksimplify.com/app1/index.html
-http://dnstest901.stacksimplify.com/app2/index.html
-http://dnstest901.stacksimplify.com/
+http://dnstest901.nholuongut.com/app1/index.html
+http://dnstest901.nholuongut.com/app2/index.html
+http://dnstest901.nholuongut.com/
 ```
 
 ### Access Application using dnstest2 domain
 ```t
 # HTTP URLs (Should Redirect to HTTPS)
-http://dnstest902.stacksimplify.com/app1/index.html
-http://dnstest902.stacksimplify.com/app2/index.html
-http://dnstest902.stacksimplify.com/
+http://dnstest902.nholuongut.com/app1/index.html
+http://dnstest902.nholuongut.com/app2/index.html
+http://dnstest902.nholuongut.com/
 ```
 
 
@@ -82,8 +82,8 @@ kubectl delete -f 04-kube-manifests-ingress-externaldns/
 ## Verify Route53 Record Set to ensure our DNS records got deleted
 - Go to Route53 -> Hosted Zones -> Records 
 - The below records should be deleted automatically
-  - dnstest901.stacksimplify.com
-  - dnstest902.stacksimplify.com
+  - dnstest901.nholuongut.com
+  - dnstest902.nholuongut.com
 ```
 
 ## Step-06: Review Terraform Manifests 
@@ -104,7 +104,7 @@ kubectl delete -f 04-kube-manifests-ingress-externaldns/
 - One Annotation Addition in Ingress Service
 ```t
     # External DNS - For creating a Record Set in Route53
-      "external-dns.alpha.kubernetes.io/hostname" = "tfdnstest901.stacksimplify.com, tfdnstest902.stacksimplify.com"
+      "external-dns.alpha.kubernetes.io/hostname" = "tfdnstest901.nholuongut.com, tfdnstest902.nholuongut.com"
 ```
 
 ## Step-08: Execute Terraform Commands
@@ -158,29 +158,29 @@ kubectl logs -f $(kubectl get po | egrep -o 'external-dns[A-Za-z0-9-]+')
 
 ## Step-11: Verify Route53
 - Go to Services -> Route53
-- You should see **Record Sets** added for `tfdnstest901.stacksimplify.com`, `tfdnstest902.stacksimplify.com`
+- You should see **Record Sets** added for `tfdnstest901.nholuongut.com`, `tfdnstest902.nholuongut.com`
 
 ## Step-12: Access Application using newly registered DNS Name
 - Perform nslookup tests before accessing Application
 - Test if our new DNS entries registered and resolving to an IP Address
 ```t
 # nslookup commands
-nslookup tfdnstest901.stacksimplify.com
-nslookup tfdnstest902.stacksimplify.com
+nslookup tfdnstest901.nholuongut.com
+nslookup tfdnstest902.nholuongut.com
 ```
 ## Step-13: Access Application using tfdnstest1 and tfdnstest2 domains
 ```t
 ## Access Application using dnstest1 domain
 # HTTP URLs (Should Redirect to HTTPS)
-http://tfdnstest901.stacksimplify.com/app1/index.html
-http://tfdnstest901.stacksimplify.com/app2/index.html
-http://tfdnstest901.stacksimplify.com/
+http://tfdnstest901.nholuongut.com/app1/index.html
+http://tfdnstest901.nholuongut.com/app2/index.html
+http://tfdnstest901.nholuongut.com/
 
 ## Access Application using dnstest2 domain
 # HTTP URLs (Should Redirect to HTTPS)
-http://tfdnstest902.stacksimplify.com/app1/index.html
-http://tfdnstest902.stacksimplify.com/app2/index.html
-http://tfdnstest902.stacksimplify.com/
+http://tfdnstest902.nholuongut.com/app1/index.html
+http://tfdnstest902.nholuongut.com/app2/index.html
+http://tfdnstest902.nholuongut.com/
 ```
 
 

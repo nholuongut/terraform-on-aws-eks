@@ -14,7 +14,7 @@ description: Learn AWS Load Balancer Controller - Ingress SSL and SSL Redirect a
 ## Step-02: Pre-requisite - Register a Domain in Route53 (if not exists)
 - Goto Services -> Route53 -> Registered Domains
 - Click on **Register Domain**
-- Provide **desired domain: somedomain.com** and click on **check** (In my case its going to be `stacksimplify.com`)
+- Provide **desired domain: somedomain.com** and click on **check** (In my case its going to be `nholuongut.com`)
 - Click on **Add to cart** and click on **Continue**
 - Provide your **Contact Details** and click on **Continue**
 - Enable Automatic Renewal
@@ -26,7 +26,7 @@ description: Learn AWS Load Balancer Controller - Ingress SSL and SSL Redirect a
 - Go to Services -> Certificate Manager -> Create a Certificate
 - Click on **Request a Certificate**
   - Choose the type of certificate for ACM to provide: Request a public certificate
-  - Add domain names: *.yourdomain.com (in my case it is going to be `*.stacksimplify.com`)
+  - Add domain names: *.yourdomain.com (in my case it is going to be `*.nholuongut.com`)
   - Select a Validation Method: **DNS Validation**
   - Click on **Confirm & Request**    
 - **Validation**
@@ -72,26 +72,26 @@ kubectl get svc
 ## Step-06: Add DNS in Route53   
 - Go to **Services -> Route 53**
 - Go to **Hosted Zones**
-  - Click on **yourdomain.com** (in my case stacksimplify.com)
+  - Click on **yourdomain.com** (in my case nholuongut.com)
 - Create a **Record Set**
-  - **Name:** ssldemo101.stacksimplify.com
+  - **Name:** ssldemo101.nholuongut.com
   - **Alias:** yes
   - **Alias Target:** Copy our ALB DNS Name here (Sample: ssl-ingress-551932098.us-east-1.elb.amazonaws.com)
   - Click on **Create**
   
 ## Step-07: Access Application using newly registered DNS Name
 - **Access Application**
-- **Important Note:** Instead of `stacksimplify.com` you need to replace with your registered Route53 domain (Refer pre-requisite Step-02)
+- **Important Note:** Instead of `nholuongut.com` you need to replace with your registered Route53 domain (Refer pre-requisite Step-02)
 ```t
 # HTTP URLs (Should redirect to HTTPS URL)
-http://ssldemo101.stacksimplify.com/app1/index.html
-http://ssldemo101.stacksimplify.com/app2/index.html
-http://ssldemo101.stacksimplify.com/
+http://ssldemo101.nholuongut.com/app1/index.html
+http://ssldemo101.nholuongut.com/app2/index.html
+http://ssldemo101.nholuongut.com/
 
 # HTTPS URLs 
-https://ssldemo101.stacksimplify.com/app1/index.html
-https://ssldemo101.stacksimplify.com/app2/index.html
-https://ssldemo101.stacksimplify.com/
+https://ssldemo101.nholuongut.com/app1/index.html
+https://ssldemo101.nholuongut.com/app2/index.html
+https://ssldemo101.nholuongut.com/
 ```
 
 ## Step-08: Clean Up
@@ -100,7 +100,7 @@ https://ssldemo101.stacksimplify.com/
 kubectl delete -f kube-manifests/
 
 ## Delete Route53 Record Set
-- Delete Route53 Record we created (ssldemo101.stacksimplify.com)
+- Delete Route53 Record we created (ssldemo101.nholuongut.com)
 ```
 
 ## Step-09: Review Terraform Manifests 
@@ -119,7 +119,7 @@ kubectl delete -f kube-manifests/
 ```t
 # Resource: ACM Certificate
 resource "aws_acm_certificate" "acm_cert" {
-  domain_name       = "*.stacksimplify.com"
+  domain_name       = "*.nholuongut.com"
   validation_method = "DNS"
 
   tags = {
@@ -266,26 +266,26 @@ kubectl get svc
 ## Step-14: Add DNS in Route53   
 - Go to **Services -> Route 53**
 - Go to **Hosted Zones**
-  - Click on **yourdomain.com** (in my case stacksimplify.com)
+  - Click on **yourdomain.com** (in my case nholuongut.com)
 - Create a **Record Set**
-  - **Name:** ssldemo102.stacksimplify.com
+  - **Name:** ssldemo102.nholuongut.com
   - **Alias:** yes
   - **Alias Target:** Copy our ALB DNS Name here (Sample: ssl-ingress-551932098.us-east-1.elb.amazonaws.com)
   - Click on **Create**
   
 ## Step-15: Access Application using newly registered DNS Name
 - **Access Application**
-- **Important Note:** Instead of `stacksimplify.com` you need to replace with your registered Route53 domain (Refer pre-requisite Step-02)
+- **Important Note:** Instead of `nholuongut.com` you need to replace with your registered Route53 domain (Refer pre-requisite Step-02)
 ```t
 # HTTP URLs (Should redirect to HTTPS URL)
-http://ssldemo102.stacksimplify.com/app1/index.html
-http://ssldemo102.stacksimplify.com/app2/index.html
-http://ssldemo102.stacksimplify.com/
+http://ssldemo102.nholuongut.com/app1/index.html
+http://ssldemo102.nholuongut.com/app2/index.html
+http://ssldemo102.nholuongut.com/
 
 # HTTPS URLs 
-https://ssldemo102.stacksimplify.com/app1/index.html
-https://ssldemo102.stacksimplify.com/app2/index.html
-https://ssldemo102.stacksimplify.com/
+https://ssldemo102.nholuongut.com/app1/index.html
+https://ssldemo102.nholuongut.com/app2/index.html
+https://ssldemo102.nholuongut.com/
 ```
 
 
@@ -299,7 +299,7 @@ terraform apply -destroy -auto-approve
 rm -rf .terraform*
 
 ## Delete Route53 Record Set
-- Delete Route53 Record we created (ssldemo101.stacksimplify.com)
+- Delete Route53 Record we created (ssldemo101.nholuongut.com)
 ```
 
 ## Step-17: Don't Clean-Up LBC Controller & EKS Cluster

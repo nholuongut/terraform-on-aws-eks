@@ -4,7 +4,7 @@ resource "kubernetes_service_v1" "myapp1_np_service" {
     name = "app1-nginx-loadbalancer-service"
     annotations = {
       "alb.ingress.kubernetes.io/healthcheck-path" = "/app1/index.html"
-      "external-dns.alpha.kubernetes.io/hostname" = "tfextdns-k8s-service-demo101.stacksimplify.com"
+      "external-dns.alpha.kubernetes.io/hostname" = "tfextdns-k8s-service-demo101.nholuongut.com"
     }
   }
   spec {
