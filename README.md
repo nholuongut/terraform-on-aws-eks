@@ -1,7 +1,22 @@
-# [Terraform on AWS EKS Kubernetes IaC SRE- 50 Real-World Demos](https://links.stacksimplify.com/terraform-on-aws-eks-kubernetes-iac-sre)
+![](https://i.imgur.com/waxVImv.png)
+### [View all Roadmaps](https://github.com/nholuongut/all-roadmaps) &nbsp;&middot;&nbsp; [Best Practices](https://github.com/nholuongut/all-roadmaps/blob/main/public/best-practices/) &nbsp;&middot;&nbsp; [Questions](https://www.linkedin.com/in/nholuong/)
+<br/>
 
-[![Image](https://stacksimplify.com/course-images/terraform-on-aws-eks-kubernetes.png "Terraform on AWS EKS Kubernetes IaC SRE- 50 Real-World Demos ")](https://links.stacksimplify.com/terraform-on-aws-eks-kubernetes-iac-sre)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=24&pause=1000&color=F7931E&width=435&lines=Hello%2C+I'm+Nho+Luong🇻🇳🇻🇳🇻🇳🇻🇳🇻🇳🇻🇳🇻🇳🇻🇳🇻🇳🇻🇳🇻🇳🇻🇳🇻🇳🇻🇳🇻🇳🇻🇳🇻🇳🇻🇳🇻🇳🇻🇳🇻🇳🇻🇳🇻🇳🇻🇳🇻🇳🇻🇳🇻)](https://git.io/typing-svg)
 
+# **About Me🇻🇳**
+- ✍️ Blogger
+- ⚽ Football Player
+- ♾️ DevOps Engineer
+- ⭐ Open-source Contributor
+- 😄 Pronouns: Mr. Nho Luong
+- 📚 Lifelong Learner | Always exploring something new
+- 📫 How to reach me: luongutnho@hotmail.com
+
+![GitHub Grade](https://img.shields.io/badge/GitHub%20Grade-A%2B-brightgreen?style=for-the-badge&logo=github)
+<p align="left"> <img src="https://komarev.com/ghpvc/?username=amanpathak-devops&label=Profile%20views&color=0e75b6&style=flat" alt="amanpathak-devops" /> </p>
+
+# [Terraform on AWS EKS Kubernetes IaC SRE- 50 Real-World Demos](https://github.com/nholuongut/terraform-on-aws-eks)
 
 ## Course Modules
 01. Infrastructure as Code (IaC)
@@ -161,57 +176,22 @@
 
 
 ## Github Repositories used for this course
-- [Terraform on AWS EKS Kubernetes IaC SRE- 50 Real-World Demos](https://github.com/stacksimplify/terraform-on-aws-eks)
-- [Course Presentation](https://github.com/stacksimplify/terraform-on-aws-eks/tree/main/course-presentation)
-- [Kubernetes Fundamentals](https://github.com/stacksimplify/kubernetes-fundamentals)
+- [Terraform on AWS EKS Kubernetes IaC SRE- 50 Real-World Demos](https://github.com/nholuongut/terraform-on-aws-eks)
+- [Kubernetes Fundamentals](https://github.com/nholuongut/kubernetes-fundamentals)
 - **Important Note:** Please go to these repositories and FORK these repositories and make use of them during the course.
 
+![](https://i.imgur.com/waxVImv.png)
+# I'm are always open to your feedback🚀
+# **[Contact Me🇻]**
+* [Name: Nho Luong]
+* [Telegram](+84983630781)
+* [WhatsApp](+84983630781)
+* [PayPal.Me](https://www.paypal.com/paypalme/nholuongut)
+* [Linkedin](https://www.linkedin.com/in/nholuong/)
 
-## Each of my courses come with
-- Amazing Hands-on Step By Step Learning Experiences
-- Real Implementation Experience
-- Friendly Support in the Q&A section
-- 30 Day "No Questions Asked" Money Back Guarantee!
+![](https://i.imgur.com/waxVImv.png)
+![](Donate.png)
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/nholuong)
 
-## My Other AWS Courses
-- [Udemy Enroll](https://www.stacksimplify.com/azure-aks/courses/stacksimplify-best-selling-courses-on-udemy/)
-
-## Stack Simplify Udemy Profile
-- [Udemy Profile](https://www.udemy.com/user/kalyan-reddy-9/)
-
-# HashiCorp Certified: Terraform Associate - 50 Practical Demos
-[![Image](https://stacksimplify.com/course-images/hashicorp-certified-terraform-associate-highest-rated.png "HashiCorp Certified: Terraform Associate - 50 Practical Demos")](https://links.stacksimplify.com/hashicorp-certified-terraform-associate) 
-
-# AWS EKS - Elastic Kubernetes Service - Masterclass
-[![Image](https://stacksimplify.com/course-images/AWS-EKS-Kubernetes-Masterclass-DevOps-Microservices-course.png "AWS EKS Kubernetes - Masterclass")](https://www.udemy.com/course/aws-eks-kubernetes-masterclass-devops-microservices/?referralCode=257C9AD5B5AF8D12D1E1)
-
-
-# Azure Kubernetes Service with Azure DevOps and Terraform 
-[![Image](https://stacksimplify.com/course-images/azure-kubernetes-service-with-azure-devops-and-terraform.png "Azure Kubernetes Service with Azure DevOps and Terraform")](https://www.udemy.com/course/azure-kubernetes-service-with-azure-devops-and-terraform/?referralCode=2499BF7F5FAAA506ED42)
-
-# Terraform on AWS with SRE & IaC DevOps | Real-World 20 Demos
-[![Image](https://stacksimplify.com/course-images/terraform-on-aws-best-seller.png "Terraform on AWS with SRE & IaC DevOps | Real-World 20 Demos")](https://links.stacksimplify.com/terraform-on-aws-with-sre-and-iacdevops)
-
-# Azure - HashiCorp Certified: Terraform Associate - 70 Demos
-[![Image](https://stacksimplify.com/course-images/azure-hashicorp-certified-terraform-associate-highest-rated.png "Azure - HashiCorp Certified: Terraform Associate - 70 Demos")](https://links.stacksimplify.com/azure-hashicorp-certified-terraform-associate)
-
-# Terraform on Azure with IaC DevOps and SRE | Real-World 25 Demos
-
-[![Image](https://stacksimplify.com/course-images/terraform-on-azure-with-iac-azure-devops-sre-1.png "Terraform on Azure with IaC DevOps and SRE | Real-World 25 Demos")](https://links.stacksimplify.com/terraform-on-azure-with-iac-devops-sre)
-
-
-
-
-## Additional References
-- [Certification Curriculum](https://www.hashicorp.com/certification/terraform-associate)
-- [Certification Preparation](https://learn.hashicorp.com/collections/terraform/certification)
-- [Study Guide](https://learn.hashicorp.com/tutorials/terraform/associate-study?in=terraform/certification)
-- [Exam Review Guide](https://learn.hashicorp.com/tutorials/terraform/associate-review?in=terraform/certification)
-- [Sample Questions](https://learn.hashicorp.com/tutorials/terraform/associate-questions?in=terraform/certification)
-
-
-
-
-
-
-
+# License🇻
+* Nho Luong (c). All Rights Reserved.🌟
